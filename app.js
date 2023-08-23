@@ -30,7 +30,7 @@ const app = express();
 app.use(helmet());
 app.use(morgan('combined', {stream: streamAccessFile}));
 // For allowing cross connection between frontend and backend of our application
-app.use(cors());
+// app.use(cors());
 // For parsing the data to frontend in json format
 app.use(bodyParser.json({ extended: false }));
 
