@@ -42,7 +42,7 @@ app.use("/premium", premiumRoutes);
 app.use("/password", forgotRoutes);
 
 app.use("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "views", "Login", `${req.url}`));
+  res.sendFile(path.join(__dirname, `public/${req.url}`));
   console.log(req.url);
 });
 
