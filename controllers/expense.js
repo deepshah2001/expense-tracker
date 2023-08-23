@@ -6,7 +6,7 @@ const sequelize = require("../util/database");
 exports.getExpense = async (req, res, next) => {
   const EXPENSES_PER_PAGE = Number(req.exp_page);
   console.log(EXPENSES_PER_PAGE);
-  const page = +req.query.page || 1;
+  const page = Number(+req.query.page || 1);
 
   console.log(page);
 
