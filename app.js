@@ -42,7 +42,8 @@ app.use("/premium", premiumRoutes);
 app.use("/password", forgotRoutes);
 
 app.use("/", (req, res, next) => {
-  res.send("Hello!");
+  res.sendFile(path.join(__dirname, "views", "Login", `${req.url}`));
+  console.log(req.url);
 });
 
 // For connecting both tables User to Expenses (One to Many)

@@ -4,7 +4,7 @@ let token = localStorage.getItem("token");
 
 document.addEventListener("DOMContentLoaded", async () => {
   const response = await axios.get(
-    "http://localhost:3000/user/file-downloaded",
+    "http://34.207.104.59:3000/user/file-downloaded",
     {
       headers: { Authorization: token },
     }
@@ -14,14 +14,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   response.data.files.forEach((file) => {
     showFiles(file.url, file.createdAt);
   });
-  download.addEventListener("click", generateReport);
 });
+
+download.addEventListener("click", generateReport);
 
 function generateReport(e) {
   e.preventDefault();
 
   axios
-    .get("http://localhost:3000/user/download", {
+    .get("http://34.207.104.59:3000/user/download", {
       headers: { Authorization: token },
     })
     .then((response) => {

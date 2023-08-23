@@ -11,7 +11,7 @@ function sendMail(e) {
     alert("Please Fill required fields in the form!");
   } else {
     axios
-      .post("http://localhost:3000/password/forgotpassword", {
+      .post("http://34.207.104.59:3000/password/forgotpassword", {
         email: email,
       })
       .then((response) => {

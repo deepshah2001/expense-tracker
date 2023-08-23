@@ -28,7 +28,7 @@ function addUser(e) {
     };
 
     axios
-      .post("http://localhost:3000/signup/user", myUser)
+      .post("http://34.207.104.59:3000/signup/user", myUser)
       .then((response) => {
         document.getElementById("status1").innerHTML = "";
         console.log(response);
@@ -58,13 +58,13 @@ function existingUser(e) {
     };
 
     axios
-      .post("http://localhost:3000/login/user", existingUser)
+      .post("http://34.207.104.59:3000/login/user", existingUser)
       .then((response) => {
         document.getElementById("status2").innerHTML = "";
         alert("User Succesfully Logged in!");
         // Setting the token in local storage for further reference in the application
         localStorage.setItem("token", response.data.token);
-        window.location.href = response.data.path;
+        window.location.href = "../Expenses/expense.html";
         console.log(response);
       })
       .catch((err) => {

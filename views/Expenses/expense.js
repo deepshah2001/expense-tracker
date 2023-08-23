@@ -41,7 +41,7 @@ function addExpense(e) {
 
     const token = localStorage.getItem("token");
     axios
-      .post("http://localhost:3000/add-expense", myExpense, {
+      .post("http://34.207.104.59:3000/add-expense", myExpense, {
         headers: { Authorization: token },
       })
       .then((response) => {
@@ -63,7 +63,7 @@ function showExpenses(myExp) {
   const tr = document.createElement("tr");
 
   tr.className = "trans";
-  tr.id = "expenses_heading";
+  tr.id = "expenses";
 
   const c2 = document.createElement("td");
   const c3 = document.createElement("td");
@@ -89,15 +89,16 @@ function showExpenses(myExp) {
     const token = localStorage.getItem("token");
     console.log(token);
     axios
-      .delete("http://localhost:3000/delete-expense/" + myExp.id, {
+      .delete("http://34.207.104.59:3000/delete-expense/" + myExp.id, {
         headers: { Authorization: token },
       })
       .then(() => {
-        list.removeChild(tr);
+        expenseBody.removeChild(tr);
+        location.reload();
       })
       .catch((err) => {
         document.body.innerHTML += "Something Went Wrong!";
-        // console.log(err);
+        console.log(err);
       });
     leader.setAttribute("hidden", "hidden");
   });
@@ -181,7 +182,7 @@ function getProducts(page) {
   console.log(entries);
   const token = localStorage.getItem("token");
   axios
-    .get(`http://localhost:3000/expenses?page=${page}`, {
+    .get(`http://34.207.104.59:3000/expenses?page=${page}`, {
       headers: { Authorization: token, exp_page: entries }, // Passing the token in the header for verification through jwt
     })
     .then((response) => {

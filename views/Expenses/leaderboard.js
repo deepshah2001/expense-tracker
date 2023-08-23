@@ -9,7 +9,7 @@ show.addEventListener("click", async (e) => {
   leader.removeAttribute("hidden");
 
   await axios
-    .get("http://localhost:3000/premium/show-leaderboard", {
+    .get("http://34.207.104.59:3000/premium/show-leaderboard", {
       headers: { Authorization: token },
     })
     .then((response) => {

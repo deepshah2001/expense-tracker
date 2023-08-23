@@ -6,7 +6,7 @@ let token;
 
 document.addEventListener("DOMContentLoaded", async () => {
   token = localStorage.getItem("token");
-  const response = await axios.get("http://localhost:3000/is-premium", {
+  const response = await axios.get("http://34.207.104.59:3000/is-premium", {
     headers: { Authorization: token },
   });
 
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 premium.addEventListener("click", async (e) => {
-  const response = await axios.get("http://localhost:3000/buy-premium", {
+  const response = await axios.get("http://34.207.104.59:3000/buy-premium", {
     headers: { Authorization: token },
   });
 
@@ -45,7 +45,7 @@ premium.addEventListener("click", async (e) => {
 
 async function updateTransaction(orderId, paymentId, status) {
   const response = await axios.post(
-    "http://localhost:3000/purchase/update-transaction-status",
+    "http://34.207.104.59:3000/purchase/update-transaction-status",
     {
       order_id: orderId,
       payment_id: paymentId,
