@@ -33,7 +33,7 @@ app.use(morgan('combined', {stream: streamAccessFile}));
 app.use(cors());
 // For parsing the data to frontend in json format
 app.use(bodyParser.json({ extended: false }));
-app.use(express.static('public'));
+
 
 // For different routes
 app.use(signUpRoutes);
@@ -42,11 +42,11 @@ app.use(paymentRoutes);
 app.use("/premium", premiumRoutes);
 app.use("/password", forgotRoutes);
 
-app.use("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, `public/${req.url}`));
-  console.log(req.url);
-});
-
+// app.use("/", (req, res, next) => {
+//   res.sendFile(path.join(__dirname, `public/${req.url}`));
+//   console.log(req.url);
+// });
+app.use(express.static(path.join(__dirname, 'public')));
 // For connecting both tables User to Expenses (One to Many)
 User.hasMany(Expenses);
 Expenses.belongsTo(User);
