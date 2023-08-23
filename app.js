@@ -33,6 +33,7 @@ app.use(morgan('combined', {stream: streamAccessFile}));
 app.use(cors());
 // For parsing the data to frontend in json format
 app.use(bodyParser.json({ extended: false }));
+app.use(express.static('public'));
 
 // For different routes
 app.use(signUpRoutes);
