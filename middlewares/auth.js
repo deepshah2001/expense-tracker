@@ -6,7 +6,7 @@ const User = require("../models/signup");
 const getVerified = async (req, res, next) => {
   try {
     const token = req.header("Authorization");
-    const exp_page = req.header("exp_page");
+    const exp_page = Number(req.header("exp_page"));
 
     if (!token) {
       return res
