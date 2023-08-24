@@ -4,8 +4,6 @@ const User = require("../models/signup");
 const sequelize = require("../util/database");
 
 exports.getExpense = async (req, res, next) => {
-  console.log(req.exp_page);
-  console.log(Number(req.exp_page));
   const EXPENSES_PER_PAGE = Number(req.exp_page);
   console.log(EXPENSES_PER_PAGE);
   const page = Number(+req.query.page || 1);

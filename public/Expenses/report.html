@@ -200,12 +200,12 @@ function generateReport(e) {
     .get("http://34.207.104.59:3000/user/download", {
       headers: { Authorization: token },
     })
-    .then((response) => {
+    .then(async (response) => {
       if (response.status === 200) {
         var a = document.createElement("a");
         a.href = response.data.fileUrl;
         a.download = "Expense.txt";
-        a.click();
+        await a.click();
         location.reload();
       }
       console.log(response);

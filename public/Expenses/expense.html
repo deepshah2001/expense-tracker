@@ -273,7 +273,7 @@
           <label for="exp_page">Expense Per Page</label>
           <select name="expense_per_page" id="exp_page">
             <option value="1">1</option>
-            <option value="2">2</option>
+            <option value="2" selected>2</option>
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
@@ -489,7 +489,7 @@
       function getProducts(page) {
         clearExpense();
         // Taking out the token for that logged in particular user for further storing their details
-        entries = localStorage.getItem("exp_page");
+        entries = Number(localStorage.getItem("exp_page"));
         exp_page.value = entries;
         console.log(entries);
         const token = localStorage.getItem("token");
